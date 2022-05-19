@@ -6,27 +6,9 @@ import (
 
 func main() {
 	for {
-		var name string
-		fmt.Print("姓名：")
-		fmt.Scanln(&name)
+		name,weight,tall,age,sex := getInfoFromInput()
 
-		var weight float64
-		fmt.Print("体重(千克):")
-		fmt.Scanln(&weight)
-
-		var tall float64
-		fmt.Print("身高（米）：")
-		fmt.Scanln(&tall)
-
-		var bmi float64 = weight / (tall * tall)
-		var age int
-		fmt.Print("年龄：")
-		fmt.Scanln(&age)
-
-		var sexWeight int
-		var sex string
-		fmt.Print("性别（男/女):")
-		fmt.Scanln(&sex)
+		bmi := calcBMI(tall,weight)
 
 		if sex == "男" {
 			sexWeight = 1
@@ -129,4 +111,32 @@ func main() {
 		}
 	}
 
+}
+
+func calcBMI(tall float64,weight float64)float64{
+	return tall/(weight*weight)
+}
+
+func getInfoFromInput() (name string,weight float64,tall float64,age int,sex string) {
+	//var name string
+	fmt.Print("姓名：")
+	fmt.Scanln(&name)
+
+	//var weight float64
+	fmt.Print("体重(千克):")
+	fmt.Scanln(&weight)
+
+	//var tall float64
+	fmt.Print("身高（米）：")
+	fmt.Scanln(&tall)
+
+	//var age int
+	fmt.Print("年龄：")
+	fmt.Scanln(&age)
+
+
+	//var sex string
+	fmt.Print("性别（男/女):")
+	fmt.Scanln(&sex)
+	return
 }
